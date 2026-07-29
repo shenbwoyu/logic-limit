@@ -159,6 +159,8 @@ var TRIAL_TEMPLATES={
 };
 var selectedDifficulty='easy',state=null,activeGroup=0,selectedLetter=null,sessionStages=[],trialSession=null,currentStart=0,currentRecordId=null,homeMenuIndex=0,difficultyIndex=0,levelMenuIndex=0,resultMenuIndex=0,escapeMenuIndex=0,timerInterval=null;
 function el(id){return document.getElementById(id)}
+function randomIndex(m){if(!Number.isFinite(m)||m<=0)throw new Error('Invalid random pool size');if(window.crypto&&crypto.getRandomValues){var a=new Uint32Array(1),lim=Math.floor(4294967296/m)*m;do{crypto.getRandomValues(a)}while(a[0]>=lim);return a[0]%m}return Math.floor(Math.random()*m)}function makeAnswer(chars,len){var a=String(chars||'').split(''),o='';if(len>a.length)throw new Error('Answer length exceeds symbol pool');while(o.length<len)o+=a.splice(randomIndex(a.length),1)[0];return o}
+function makeNotes(level){var chars=levels()[level].letters,colors={},positions={},positionColors={},groups={};chars.split('').forEach(function(ch){colors[ch]=0;positions[ch]=[];positionColors[ch]={};groups[ch]=0});return{colors:colors,positions:positions,positionColors:positionColors,groups:groups,groupNames:[],groupCounts:[0]}}
 var screens={home:el('homeScreen'),difficulty:el('difficultyScreen'),levels:el('levelsScreen'),rules:el('rulesScreen'),shortcuts:el('shortcutsScreen'),records:el('recordsScreen'),stats:el('statsScreen'),achievements:el('achievementsScreen'),game:el('gameScreen')};
 function levels(){return DIFFICULTIES[selectedDifficulty].levels}function cfg(){return levels()[state.level]}
 function safeGet(k,f){try{var v=localStorage.getItem(k);return v?JSON.parse(v):f}catch(e){return f}}function safeSet(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
