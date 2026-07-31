@@ -1,5 +1,16 @@
 # Changelog
 
+## 5.6.1 — Logic Lab Rule Redesign
+
+- Replaced the fixed Discovery and score/guess-limit Rules with three interacting rule groups: Answer Specification, Input Specification, and Experiment Procedure.
+- Every round now combines two structural constraints that both narrow the valid answer space.
+- Input Specification is enforced before a guess is accepted; invalid guesses do not consume an attempt.
+- Experiment Procedure changes the first several probes through no-reuse, fresh-letter, position-rotation, or controlled-overlap conditions.
+- Exact answers remain submit-able even when an early experiment procedure would otherwise block the probe.
+- Existing Classic, Explorer, Challenge, Time Attack, and Trial behavior is unchanged.
+- Legacy v5.6.0 Logic Lab saves restart only their current Logic Lab round with a new compatible rule set.
+- Windows package and PWA cache updated to 5.6.1.
+
 ## 5.6.0 — Logic Lab
 
 ### Added

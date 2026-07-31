@@ -13,9 +13,9 @@ The project should not drift toward story, character, crime-scene, RPG, or immer
 5. Keep additions small and compatible with the existing single-file game structure.
 
 ## Current release
-Version 5.6.0 adds Logic Lab as the final mode update. Each round draws one Information Rule, one Discovery Rule, and one Challenge Rule.
+Version 5.6.1 redesigns Logic Lab around three interacting constraints: an Answer Specification, an Input Specification, and an Experiment Procedure. The answer is generated to satisfy both structural specifications, while the temporary procedure changes how the opening guesses must be constructed.
 
-Logic Lab uses the existing answer generator, judge, input flow, notes, save handling, and result flow. Only Logic Lab answer generation is filtered by the active Information Rule. Discovery Rules query the existing Deduction Engine only after their stated guess threshold.
+Logic Lab continues to use the existing answer generator, judge, input flow, notes, save handling, and result flow. Rule validation is kept directly in `index.html`; invalid Logic Lab guesses are rejected before the existing judge runs and do not consume an attempt.
 
 No Rule Engine, registry, factory, plugin system, modular rewrite, story layer, or RPG system is introduced.
 

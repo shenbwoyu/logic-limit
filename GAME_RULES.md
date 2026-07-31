@@ -18,30 +18,32 @@ Symbols may not repeat in either the answer or a valid guess.
 - Trial: fifteen consecutive puzzles; one failure ends the run.
 
 ## Logic Lab Rules
-Every Logic Lab round draws one Rule from each group.
+Every Logic Lab round draws one Rule from each group. The Answer Specification and Input Specification are always different families, and the generated answer satisfies both.
 
-### Information
-- At least one vowel: A, E, I, O, or U.
-- No repeated symbol.
-- At least one letter from A–M.
-- At least one letter from N–Z.
+### Answer Specification
+One structural fact about the hidden four-letter answer, selected from:
+- exactly one vowel;
+- two letters from A–M and two from N–Z;
+- first and last letters from opposite halves;
+- one letter from each band A–F, G–M, N–S, T–Z;
+- alphabetical span of at least 15;
+- no alphabetically adjacent pair.
 
-### Discovery
-- After guess four, show Remaining Candidates.
-- After guess five, show letters the Deduction Engine can prove impossible. Nothing is shown when no impossible letter has been proven.
+### Input Specification
+Every submitted guess must obey one of the same structural families. A violating guess is rejected without consuming an attempt. Because the answer is generated to satisfy this specification, the final answer is always a valid input.
 
-### Challenge
-- Guess Limit is 8 instead of the normal 10.
-- Logic Lab Score is multiplied by 1.3.
+### Experiment Procedure
+The opening probes also follow one temporary procedure:
+- the first two guesses share no letters;
+- each of the first three guesses contains at least two previously untested letters;
+- guesses two through four keep no letter in the same position as the previous guess;
+- guesses two through four share exactly one letter with the previous guess; or
+- guesses two through four share exactly two letters with the previous guess.
 
-Logic Lab Score awards 100 points for each remaining guess allowance including the successful guess, with a minimum base of 100 points. The multiplier applies only when its Rule is active and is not added to the existing statistics screen.
+The exact answer may always be submitted, so the temporary procedure cannot prevent completion.
 
 ## Deduction Engine rules
-The engine does not change A/B judging and does not inspect the hidden answer to create a fact.
-
-It may establish only facts that hold for every answer compatible with all visible guesses, results, and the active Logic Lab Information Rule:
-- impossible symbol
-- candidate count
+The existing Deduction Engine remains available to the project, but Logic Lab v5.6.1 no longer invokes automatic candidate or impossible-letter reveals. A/B judging remains unchanged.
 
 ## Failure behavior
 When a stage ends unsuccessfully, the correct answer is appended to the history display.

@@ -1,0 +1,21 @@
+{
+  "name": "logic-limit",
+  "version": "5.6.1",
+  "description": "LOGIC LIMIT - Dark Archive deduction puzzle game",
+  "main": "main.js",
+  "author": "LOGIC LIMIT Studio",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "check": "node --check main.js && node --check preload.js && node --check app/solver.js",
+    "build:portable": "electron-builder --win portable --x64 --config electron-builder-portable.json",
+    "build:installer": "electron-builder --win nsis --x64 --config electron-builder-installer.json",
+    "build": "npm run check && npm run build:portable && npm run build:installer",
+    "test": "node tests/solver.test.js"
+  },
+  "devDependencies": {
+    "electron": "37.2.3",
+    "electron-builder": "26.0.12"
+  }
+}

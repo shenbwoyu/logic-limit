@@ -1,0 +1,30 @@
+{
+  "appId": "tw.logiclimit.game",
+  "productName": "LOGIC LIMIT",
+  "directories": {
+    "output": "dist",
+    "buildResources": "build"
+  },
+  "files": [
+    "app/**/*",
+    "main.js",
+    "preload.js",
+    "package.json"
+  ],
+  "asar": true,
+  "win": {
+    "icon": "build/icon.ico",
+    "target": [
+      {
+        "target": "portable",
+        "arch": [
+          "x64"
+        ]
+      }
+    ],
+    "artifactName": "LOGIC_LIMIT_Portable_${version}_${arch}.${ext}"
+  },
+  "portable": {
+    "artifactName": "LOGIC_LIMIT_Portable_${version}_${arch}.${ext}"
+  }
+}

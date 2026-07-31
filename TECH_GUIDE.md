@@ -59,14 +59,14 @@ The initial implementation uses exact permutation enumeration with safeguards:
 - default maximum search space: 2,000,000 permutations
 - default maximum stored candidates: 250,000
 
-Large later stages can exceed these limits. Version 5.6.0 invokes exact analysis only inside Logic Lab, whose board is fixed at 26 symbols and a four-symbol answer. Analysis runs only after the active Discovery Rule reaches guess four or five. Other modes do not run automatic candidate analysis.
+Large later stages can exceed these limits. Version 5.6.1 does not run automatic candidate enumeration for Logic Lab. Other modes also remain unchanged.
 
 ## Logic Lab integration
 - Logic Lab rules remain directly inside `index.html` as a small `RULE_POOL`.
-- One rule is selected from each of the three groups at the start of every round.
-- Information Rules filter generated answers before play begins.
-- Discovery Rules call `LogicLimitSolver.solve` using visible guess history and then apply the active Information Rule to the candidate list.
-- Challenge Rules adjust only Logic Lab's guess limit or result score multiplier.
+- One Answer Specification, one different-family Input Specification, and one Experiment Procedure are drawn for every round.
+- The hidden answer is generated to satisfy both structural specifications.
+- Input and procedure validation runs before the existing judge; rejected guesses do not consume an attempt.
+- No Rule changes A/B scoring, the answer generator used by other modes, statistics format, or save format.
 
 ## Commands
 ```bash

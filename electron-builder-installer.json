@@ -1,0 +1,39 @@
+{
+  "appId": "tw.logiclimit.game",
+  "productName": "LOGIC LIMIT",
+  "directories": {
+    "output": "dist",
+    "buildResources": "build"
+  },
+  "files": [
+    "app/**/*",
+    "main.js",
+    "preload.js",
+    "package.json"
+  ],
+  "asar": true,
+  "win": {
+    "icon": "build/icon.ico",
+    "target": [
+      {
+        "target": "nsis",
+        "arch": [
+          "x64"
+        ]
+      }
+    ],
+    "artifactName": "LOGIC_LIMIT_Setup_${version}_${arch}.${ext}"
+  },
+  "nsis": {
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "shortcutName": "LOGIC LIMIT",
+    "deleteAppDataOnUninstall": false,
+    "installerLanguages": [
+      "zh_TW"
+    ],
+    "language": "1028"
+  }
+}
